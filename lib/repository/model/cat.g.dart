@@ -12,7 +12,7 @@ Cat _$CatFromJson(Map<String, dynamic> json) {
         ?.map((e) => Breed.fromJson(e as Map<String, dynamic>))
         .toList(),
     id: json['id'] as String?,
-    url: json['url'] as String?,
+    url: json['url'] as String,
     width: json['width'] as int?,
     height: json['height'] as int?,
   );

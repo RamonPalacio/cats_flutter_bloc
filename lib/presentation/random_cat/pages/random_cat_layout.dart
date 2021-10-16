@@ -20,16 +20,14 @@ class RandomCatLayout extends StatelessWidget {
         } else if (state is RandomCatState) {
           return Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 28.0),
-                child: CatCard(
-                  title: state.cat?.breeds?.first.name ?? '',
-                  origin: state.cat?.breeds?.first.origin ?? '',
-                  weight: state.cat?.breeds?.first.weight?.imperial ?? '',
-                  description: state.cat?.breeds?.first.description ?? '',
-                  catPhoto: state.cat?.url ??
-                      'https://clinicadentalarias.com/wp-content/uploads/2016/10/orionthemes-placeholder-image.jpg',
-                ),
+              CatCard(
+                title: state.cat?.breeds.runtimeType == List
+                    ? ''
+                    : state.cat?.breeds!.first.name ?? '',
+                origin: state.cat?.breeds?.first.origin ?? '',
+                weight: state.cat?.breeds?.first.weight?.imperial ?? '',
+                description: state.cat?.breeds?.first.description ?? '',
+                catPhoto: state.cat?.url,
               ),
               const Spacer(),
               Padding(
